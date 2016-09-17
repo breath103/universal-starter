@@ -11,10 +11,17 @@ export class App {
 
 }
 
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'home',
-  template: 'Home component'
+  template: 'Home component <h3>{{title}}</h3>'
 })
 export class Home {
-
+  title: String;
+  constructor(route: ActivatedRoute) {
+    route.data.subscribe((data) => {
+      this.title = data['title'];
+    });
+  }
 }

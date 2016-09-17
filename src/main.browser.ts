@@ -12,7 +12,8 @@ import { App, Home } from './app/app';
     UniversalModule, // BrowserModule, HttpModule, and JsonpModule are included
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: Home, pathMatch: 'full' }
+      { path: '', component: Home, data: { title: "HOME" }},
+      { path: 'about', component: Home, data: { title: "ABOUT" } },
     ])
   ]
 })

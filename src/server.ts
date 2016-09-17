@@ -14,18 +14,19 @@ enableProdMode();
 import { serverApi } from './backend/api';
 
 // Routes with html5pushstate
-function tryRunEngine() {
+function tryRunEngine(location) {
   const engine = createEngine({});
   engine('./src/index.html', {
     req: {},
     res: {},
     ngModule: MainModule,
     baseUrl: '/',
-    requestUrl: "http://www.lvh.me:3000",
+    requestUrl: `http://www.lvh.me:3000${location}`,
     originUrl: "lvh.me",
   }, (error, result) => {
     console.log("result: ", error, result);
   });
 }
 
-tryRunEngine();
+tryRunEngine('/');
+tryRunEngine('/about');
